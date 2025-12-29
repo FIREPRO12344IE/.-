@@ -8,31 +8,13 @@ const Index = () => {
   const [countdown, setCountdown] = useState(3);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
-  const photos = [
-    {
-      src: "/lovable-uploads/76385d24-3018-4a40-b95f-557db3e9de24.png",
-      message: "Thank you for being my friend, Pearlie"
-    },
-    {
-      src: "/lovable-uploads/7fe4f73f-2800-460c-9839-15997d770f37.png",
-      message: "You light up every room you enter"
-    },
-    {
-      src: "/lovable-uploads/d21e98ae-e25c-4130-9039-51766abe9962.png",
-      message: "Your laugh is the sweetest sound"
-    },
-    {
-      src: "/lovable-uploads/b93b0b5e-adfb-4cf5-b9ca-aeb818b54bcf.png",
-      message: "You've made my life so much brighter"
-    },
-    {
-      src: "/lovable-uploads/f2b4a8da-00a7-47cf-a269-173c8f671b36.png",
-      message: "Every memory with you is precious"
-    },
-    {
-      src: "/lovable-uploads/0dd5d1cc-cf9b-4acb-9fd7-4edbd12dc950.png",
-      message: "You're not just a friend, you're family"
-    }
+  const sweetMessages = [
+    "You light up every room you enter, boo 💕",
+    "Your laugh is the sweetest sound, pook",
+    "You've made my life so much brighter",
+    "Every memory with you is precious",
+    "You're my everything, boo",
+    "Forever grateful for you, pook"
   ];
 
   const heartfeltMessages = [
@@ -40,8 +22,8 @@ const Index = () => {
     "Your kindness has no limits", 
     "You make the ordinary feel extraordinary",
     "Thank you for choosing to be in my life",
-    "You're the friend everyone deserves but few are lucky enough to have",
-    "Your heart is pure gold, Pearlie"
+    "You're the boo everyone deserves but few are lucky enough to have",
+    "Your heart is pure gold, Reign"
   ];
 
   // Countdown effect
@@ -56,15 +38,15 @@ const Index = () => {
     }
   }, [countdown, currentSection]);
 
-  // Photo gallery auto-advance
+  // Message auto-advance
   useEffect(() => {
     if (currentSection === 1) {
       const interval = setInterval(() => {
-        setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
+        setCurrentPhotoIndex((prev) => (prev + 1) % sweetMessages.length);
       }, 4000);
       return () => clearInterval(interval);
     }
-  }, [currentSection, photos.length]);
+  }, [currentSection, sweetMessages.length]);
 
   const handleNext = () => {
     setCurrentSection(currentSection + 1);
@@ -85,10 +67,10 @@ const Index = () => {
           ) : (
             <div className="animate-fade-in">
               <div className="text-6xl font-bold text-pink-400 mb-4 drop-shadow-lg">
-                💕 For My Dearest Pearlie 💕
+                💕 For My Dearest Reign 💕
               </div>
               <div className="text-2xl text-white font-serif italic">
-                A little something from your friend Edwin
+                A little something from your boo Edwin
               </div>
             </div>
           )}
@@ -108,11 +90,9 @@ const Index = () => {
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <div className="relative mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-pink-300 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
-            <img 
-              src={photos[currentPhotoIndex].src}
-              alt="Beautiful memories with Pearlie"
-              className="relative w-80 h-80 object-cover rounded-3xl mx-auto shadow-2xl border-4 border-white animate-scale-in transform hover:scale-105 transition-transform duration-500"
-            />
+            <div className="relative w-80 h-80 flex items-center justify-center rounded-3xl mx-auto shadow-2xl border-4 border-white bg-gradient-to-br from-pink-400 via-pink-300 to-white">
+              <div className="text-8xl animate-pulse">💕</div>
+            </div>
             <div className="absolute -top-6 -right-6 text-4xl animate-bounce">🌟</div>
             <div className="absolute -bottom-6 -left-6 text-4xl animate-bounce" style={{animationDelay: '0.5s'}}>✨</div>
             <div className="absolute top-1/2 -left-12 text-3xl animate-pulse">💖</div>
@@ -121,11 +101,11 @@ const Index = () => {
           
           <div className="mb-8">
             <p className="text-2xl font-serif text-white mb-6 animate-fade-in leading-relaxed px-4 py-6 bg-black/70 backdrop-blur-sm rounded-2xl shadow-lg border border-pink-400">
-              "{photos[currentPhotoIndex].message}"
+              "{sweetMessages[currentPhotoIndex]}"
             </p>
             
             <div className="flex justify-center gap-2 mb-6">
-              {photos.map((_, index) => (
+              {sweetMessages.map((_, index) => (
                 <div 
                   key={index}
                   className={`w-3 h-3 rounded-full transition-all duration-500 ${
@@ -138,7 +118,7 @@ const Index = () => {
             </div>
             
             <div className="text-sm text-pink-400 mb-4 italic">
-              Photo {currentPhotoIndex + 1} of {photos.length}
+              Sweet message {currentPhotoIndex + 1} of {sweetMessages.length}
             </div>
           </div>
 
@@ -178,10 +158,10 @@ const Index = () => {
               <div className="absolute -top-2 -right-2 text-3xl animate-bounce">✨</div>
               
               <p className="text-2xl font-serif text-black leading-relaxed mb-6">
-                "Dearest Pearlie,
+                "Dearest Reign,
               </p>
               <p className="text-2xl font-serif text-black leading-relaxed mb-6">
-                Thank you for being the most incredible friend anyone could ask for. 
+                Thank you for being the most incredible person in my life, pook. 
                 You've been my constant source of joy, my shoulder to lean on, and 
                 the brightest light in so many of my days.
               </p>
@@ -190,12 +170,12 @@ const Index = () => {
                 heart is pure gold. I am so grateful that life brought us together.
               </p>
               <p className="text-2xl font-serif text-black leading-relaxed mb-8">
-                This little website is just a tiny way to show you how much you mean to me. 
+                This little website is just a tiny way to show you how much you mean to me, boo. 
                 You deserve all the love and appreciation in the world."
               </p>
               <div className="text-pink-600 font-semibold text-xl flex items-center justify-center gap-2">
                 <Heart className="text-pink-500" size={24} />
-                Forever your friend, Edwin
+                Forever yours, Edwin
                 <Heart className="text-pink-500" size={24} />
               </div>
             </div>
@@ -224,7 +204,7 @@ const Index = () => {
         
         <div className="max-w-2xl mx-auto relative z-10">
           <h2 className="text-5xl font-bold text-pink-400 mb-8 text-center flex items-center justify-center gap-4">
-            🍦 Pearlie's Friendship Analytics 🍨
+            🍦 Reign's Love Analytics 🍨
           </h2>
           
           <Card className="bg-white/95 backdrop-blur-sm border-2 border-pink-400 shadow-2xl">
@@ -298,7 +278,7 @@ const Index = () => {
         
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <h2 className="text-5xl font-bold text-pink-400 mb-12 flex items-center justify-center gap-4">
-            🏆 The Ultimate Friend Leaderboard 🏆
+            🏆 The Ultimate Boo Leaderboard 🏆
           </h2>
           
           <Card className="bg-white/95 backdrop-blur-sm border-2 border-pink-400 shadow-2xl mb-8 relative overflow-hidden">
@@ -307,10 +287,10 @@ const Index = () => {
               <div className="text-center">
                 <div className="text-8xl mb-6 animate-bounce">👑</div>
                 <div className="text-4xl font-bold text-black mb-4">
-                  #1 PEARLIE
+                  #1 REIGN
                 </div>
                 <div className="text-2xl text-pink-600 mb-6 font-serif italic">
-                  "The Ultimate Best Friend"
+                  "The Ultimate Boo & Pook"
                 </div>
                 <div className="bg-gradient-to-r from-pink-200 via-pink-100 to-gray-100 rounded-2xl p-6 mb-6 border-2 border-pink-400">
                   <span className="text-3xl font-bold text-black block mb-2">
@@ -321,8 +301,8 @@ const Index = () => {
                   </span>
                 </div>
                 <div className="space-y-2 text-black text-xl">
-                  <p className="font-bold">🥇 Winner of: Best Friend Ever</p>
-                  <p className="font-bold">🏆 Champion of: Unconditional Support</p>
+                  <p className="font-bold">🥇 Winner of: Best Boo Ever</p>
+                  <p className="font-bold">🏆 Champion of: Unconditional Love</p>
                   <p className="font-bold">👑 Queen of: Making Everything Better</p>
                 </div>
                 <div className="mt-8 p-4 bg-pink-100 rounded-xl border border-pink-300">
@@ -369,12 +349,12 @@ const Index = () => {
         <Card className="bg-white/95 backdrop-blur-sm border-2 border-pink-400 shadow-2xl">
           <CardContent className="p-12">
             <p className="text-2xl font-serif text-black leading-relaxed mb-8">
-              This entire website was coded with love, just for you, Pearlie. 
+              This entire website was coded with love, just for you, Reign. 
               Every animation, every color, every word - all chosen to make you smile 
-              the way you've made me smile countless times.
+              the way you've made me smile countless times, pook.
             </p>
             <p className="text-2xl font-serif text-black leading-relaxed mb-8">
-              You're as sweet as your favorite ice cream, and twice as special. 🍦
+              You're as sweet as your favorite ice cream, and twice as special, boo. 🍦
             </p>
             <div className="flex justify-center items-center gap-6 text-5xl mb-8">
               <IceCream className="text-pink-400 animate-pulse" size={60} />
@@ -383,7 +363,7 @@ const Index = () => {
               <Sparkles className="text-pink-400 animate-pulse" size={60} />
             </div>
             <div className="text-2xl text-pink-600 font-bold">
-              Made with endless love by your friend Edwin 💖
+              Made with endless love by your boo Edwin 💖
             </div>
             <div className="mt-6 text-lg text-gray-600 italic">
               (I hope this made you cry happy tears! 🥺💕)
