@@ -34,6 +34,14 @@ const Index = () => {
     "Your heart is pure gold, Reign"
   ];
 
+  // Preload all images on mount
+  useEffect(() => {
+    reignPhotos.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   // Countdown effect
   useEffect(() => {
     if (currentSection === 0 && countdown > 0) {
@@ -99,11 +107,16 @@ const Index = () => {
           <div className="relative mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-pink-300 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
             <div className="relative w-80 h-96 rounded-3xl mx-auto shadow-2xl border-4 border-white overflow-hidden">
-              <img 
-                src={reignPhotos[currentPhotoIndex]} 
-                alt={`Reign photo ${currentPhotoIndex + 1}`}
-                className="w-full h-full object-cover transition-all duration-500"
-              />
+              {reignPhotos.map((photo, index) => (
+                <img 
+                  key={index}
+                  src={photo} 
+                  alt={`Reign photo ${index + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                    index === currentPhotoIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              ))}
             </div>
             <div className="absolute -top-6 -right-6 text-4xl animate-bounce">🦕</div>
             <div className="absolute -bottom-6 -left-6 text-4xl animate-bounce" style={{animationDelay: '0.5s'}}>🦖</div>
