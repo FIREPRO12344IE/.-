@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Heart, Sparkles } from 'lucide-react';
+import { Heart, Sparkles, Star } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import FallingDinos from '@/components/FallingDinos';
 import reign1 from '@/assets/reign-1.png';
@@ -19,20 +19,11 @@ const Index = () => {
   
   const sweetMessages = [
     "My cutest little dino 🦕💕",
-    "You're rawr-some, pook 🦖",
+    "You are rawr-some, pook 🦖",
     "The prettiest T-Rex ever 🐾",
     "Every dino moment with you is precious 🦎",
-    "You're my boo-saurus, boo 🦕",
+    "You are my boo-saurus, boo 🦕",
     "Forever grateful for my pook 🦖💕"
-  ];
-
-  const heartfeltMessages = [
-    "You've been there through every laugh and every tear",
-    "Your kindness has no limits", 
-    "You make the ordinary feel extraordinary",
-    "Thank you for choosing to be in my life",
-    "You're the boo everyone deserves but few are lucky enough to have",
-    "Your heart is pure gold, Reign"
   ];
 
   // Preload all images on mount
@@ -69,26 +60,43 @@ const Index = () => {
     setCurrentSection(currentSection + 1);
   };
 
+  const CuteButton = ({ onClick, children }: { onClick: () => void; children: React.ReactNode }) => (
+    <button 
+      onClick={onClick}
+      className="group relative bg-gradient-to-r from-cute-pink via-cute-purple to-cute-pink text-white px-10 py-4 rounded-full font-bold text-lg shadow-cute hover:shadow-glow-pink transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border-4 border-white/50 overflow-hidden"
+    >
+      <span className="relative z-10 flex items-center gap-2 justify-center">
+        {children}
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-cute-purple via-cute-pink to-cute-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    </button>
+  );
+
   if (currentSection === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-pink-900 relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cute-lavender via-cute-pink to-cute-peach relative overflow-hidden">
         <FallingDinos />
-        <div className="text-center relative">
-          <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 text-6xl animate-bounce">🦕</div>
-          <div className="absolute -top-20 right-0 text-4xl animate-pulse" style={{animationDelay: '1s'}}>🦖</div>
-          <div className="absolute -bottom-20 left-0 text-5xl animate-bounce" style={{animationDelay: '0.5s'}}>🐾</div>
+        <div className="text-center relative z-10">
+          <div className="absolute -top-24 left-1/2 transform -translate-x-1/2 text-7xl animate-bounce-soft drop-shadow-lg">🦕</div>
+          <div className="absolute -top-16 -right-16 text-5xl animate-float" style={{animationDelay: '1s'}}>💖</div>
+          <div className="absolute -bottom-20 -left-10 text-6xl animate-bounce-soft" style={{animationDelay: '0.5s'}}>🦖</div>
+          <div className="absolute -bottom-16 -right-10 text-5xl animate-float" style={{animationDelay: '1.5s'}}>✨</div>
           
           {countdown > 0 ? (
-            <div className="text-9xl font-bold text-pink-400 animate-pulse drop-shadow-lg">
-              {countdown}
+            <div className="relative">
+              <div className="text-[10rem] font-pacifico text-gradient-cute animate-pulse-soft drop-shadow-lg">
+                {countdown}
+              </div>
+              <div className="absolute -top-4 -right-4 text-4xl animate-sparkle">⭐</div>
+              <div className="absolute -bottom-4 -left-4 text-4xl animate-sparkle" style={{animationDelay: '0.5s'}}>🌟</div>
             </div>
           ) : (
             <div className="animate-fade-in">
-              <div className="text-6xl font-bold text-pink-400 mb-4 drop-shadow-lg">
+              <div className="text-5xl md:text-6xl font-pacifico text-gradient-cute mb-6 drop-shadow-lg">
                 💕 For My Dearest Reign 💕
               </div>
-              <div className="text-2xl text-white font-serif italic">
-                A little something from your boo Edwin
+              <div className="text-2xl text-foreground/80 font-quicksand font-medium bg-white/60 backdrop-blur-sm rounded-full px-8 py-3 shadow-cute">
+                A little something from your boo Edwin 🦕
               </div>
             </div>
           )}
@@ -99,13 +107,13 @@ const Index = () => {
 
   if (currentSection === 1) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-cute-peach via-cute-pink to-cute-lavender flex items-center justify-center p-8 relative overflow-hidden">
         <FallingDinos />
         
         <div className="max-w-2xl mx-auto text-center relative z-10">
-          <div className="relative mb-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-pink-300 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
-            <div className="relative w-80 h-96 rounded-3xl mx-auto shadow-2xl border-4 border-white overflow-hidden">
+          <div className="relative mb-10">
+            <div className="absolute -inset-4 bg-gradient-to-r from-cute-pink via-cute-purple to-cute-blue rounded-[3rem] blur-2xl opacity-40 animate-pulse-soft"></div>
+            <div className="relative w-72 md:w-80 h-96 rounded-[2rem] mx-auto shadow-cute border-[6px] border-white overflow-hidden bg-white">
               {reignPhotos.map((photo, index) => (
                 <img 
                   key={index}
@@ -117,41 +125,43 @@ const Index = () => {
                 />
               ))}
             </div>
-            <div className="absolute -top-6 -right-6 text-4xl animate-bounce">🦕</div>
-            <div className="absolute -bottom-6 -left-6 text-4xl animate-bounce" style={{animationDelay: '0.5s'}}>🦖</div>
-            <div className="absolute top-1/2 -left-12 text-3xl animate-pulse">🐾</div>
-            <div className="absolute top-1/2 -right-12 text-3xl animate-pulse" style={{animationDelay: '1s'}}>🦎</div>
+            <div className="absolute -top-8 -right-8 text-5xl animate-float">💖</div>
+            <div className="absolute -bottom-8 -left-8 text-5xl animate-float" style={{animationDelay: '0.5s'}}>🦕</div>
+            <div className="absolute top-1/2 -left-14 text-4xl animate-bounce-soft">✨</div>
+            <div className="absolute top-1/2 -right-14 text-4xl animate-bounce-soft" style={{animationDelay: '1s'}}>🌸</div>
           </div>
           
-          <div className="mb-8">
-            <p className="text-2xl font-serif text-white mb-6 animate-fade-in leading-relaxed px-4 py-6 bg-black/70 backdrop-blur-sm rounded-2xl shadow-lg border border-pink-400">
-              "{sweetMessages[currentPhotoIndex]}"
-            </p>
+          <div className="mb-10">
+            <div className="bg-white/80 backdrop-blur-md rounded-[2rem] px-8 py-6 shadow-cute border-4 border-cute-pink/30 mb-6">
+              <p className="text-2xl font-quicksand font-semibold text-foreground animate-fade-in leading-relaxed">
+                "{sweetMessages[currentPhotoIndex]}"
+              </p>
+            </div>
             
-            <div className="flex justify-center gap-2 mb-6">
+            <div className="flex justify-center gap-3 mb-4">
               {sweetMessages.map((_, index) => (
-                <div 
+                <button 
                   key={index}
-                  className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                  onClick={() => setCurrentPhotoIndex(index)}
+                  className={`w-4 h-4 rounded-full transition-all duration-500 border-2 ${
                     index === currentPhotoIndex 
-                      ? 'bg-pink-400 scale-125 shadow-lg' 
-                      : 'bg-gray-600 hover:bg-pink-300'
+                      ? 'bg-cute-pink border-white scale-125 shadow-lg' 
+                      : 'bg-white/50 border-cute-pink/50 hover:bg-cute-pink/50'
                   }`}
                 />
               ))}
             </div>
             
-            <div className="text-sm text-pink-400 mb-4 italic">
+            <div className="text-sm text-foreground/60 font-medium flex items-center justify-center gap-2">
+              <Star size={16} className="text-cute-yellow" />
               Sweet message {currentPhotoIndex + 1} of {sweetMessages.length}
+              <Star size={16} className="text-cute-yellow" />
             </div>
           </div>
 
-          <button 
-            onClick={handleNext}
-            className="bg-gradient-to-r from-pink-500 via-pink-400 to-white text-black px-10 py-4 rounded-full font-semibold hover:from-pink-600 hover:via-pink-500 hover:to-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105"
-          >
+          <CuteButton onClick={handleNext}>
             Continue Reading 🦕💕
-          </button>
+          </CuteButton>
         </div>
       </div>
     );
@@ -159,52 +169,51 @@ const Index = () => {
 
   if (currentSection === 2) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-cute-mint via-cute-blue to-cute-lavender flex items-center justify-center p-8 relative overflow-hidden">
         <FallingDinos />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="mb-12">
-            <h2 className="text-5xl font-serif text-pink-400 mb-8 flex items-center justify-center gap-4">
-              <Sparkles className="text-pink-300 animate-pulse" size={52} />
+          <div className="mb-10">
+            <h2 className="text-4xl md:text-5xl font-pacifico text-gradient-cute mb-10 flex items-center justify-center gap-4 drop-shadow-lg">
+              <Sparkles className="text-cute-yellow animate-sparkle" size={48} />
               A Message From My Heart
-              <Sparkles className="text-pink-300 animate-pulse" size={52} />
+              <Sparkles className="text-cute-yellow animate-sparkle" size={48} />
             </h2>
             
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border-2 border-pink-400 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 text-4xl">💕</div>
-              <div className="absolute -top-2 -left-2 text-3xl animate-spin-slow">🌟</div>
-              <div className="absolute -top-2 -right-2 text-3xl animate-bounce">✨</div>
+            <div className="bg-white/90 backdrop-blur-md rounded-[2rem] p-8 md:p-12 shadow-cute border-4 border-cute-pink/30 relative">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-5xl animate-bounce-soft">💕</div>
+              <div className="absolute -top-4 -left-4 text-3xl animate-spin-slow">🌟</div>
+              <div className="absolute -top-4 -right-4 text-3xl animate-float">✨</div>
+              <div className="absolute -bottom-4 -left-4 text-3xl animate-float" style={{animationDelay: '1s'}}>🦕</div>
+              <div className="absolute -bottom-4 -right-4 text-3xl animate-float" style={{animationDelay: '0.5s'}}>🦖</div>
               
-              <p className="text-2xl font-serif text-black leading-relaxed mb-6">
-                "Dearest Reign,
-              </p>
-              <p className="text-2xl font-serif text-black leading-relaxed mb-6">
-                Thank you for being the most incredible person in my life, pook. 
-                You've been my constant source of joy, my shoulder to lean on, and 
-                the brightest light in so many of my days.
-              </p>
-              <p className="text-2xl font-serif text-black leading-relaxed mb-6">
-                Your kindness knows no bounds, your laughter is contagious, and your 
-                heart is pure gold. I am so grateful that life brought us together.
-              </p>
-              <p className="text-2xl font-serif text-black leading-relaxed mb-8">
-                This little website is just a tiny way to show you how much you mean to me, boo. 
-                You deserve all the love and appreciation in the world."
-              </p>
-              <div className="text-pink-600 font-semibold text-xl flex items-center justify-center gap-2">
-                <Heart className="text-pink-500" size={24} />
+              <div className="space-y-6 text-xl md:text-2xl font-quicksand text-foreground leading-relaxed">
+                <p className="font-semibold text-cute-pink">"Dearest Reign,</p>
+                <p>
+                  Thank you for being the most incredible person in my life, pook. 
+                  You have been my constant source of joy, my shoulder to lean on, and 
+                  the brightest light in so many of my days. 🌟
+                </p>
+                <p>
+                  Your kindness knows no bounds, your laughter is contagious, and your 
+                  heart is pure gold. I am so grateful that life brought us together. 💖
+                </p>
+                <p>
+                  This little website is just a tiny way to show you how much you mean to me, boo. 
+                  You deserve all the love and appreciation in the world. 🦕"
+                </p>
+              </div>
+              <div className="mt-8 text-cute-pink font-pacifico text-2xl flex items-center justify-center gap-3">
+                <Heart className="text-cute-pink animate-pulse-soft" size={28} fill="currentColor" />
                 Forever yours, Edwin
-                <Heart className="text-pink-500" size={24} />
+                <Heart className="text-cute-pink animate-pulse-soft" size={28} fill="currentColor" />
               </div>
             </div>
           </div>
 
-          <button 
-            onClick={handleNext}
-            className="bg-gradient-to-r from-pink-500 via-pink-400 to-white text-black px-10 py-4 rounded-full font-semibold hover:from-pink-600 hover:via-pink-500 hover:to-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105"
-          >
+          <CuteButton onClick={handleNext}>
             See Your Special Stats 🦕📊
-          </button>
+          </CuteButton>
         </div>
       </div>
     );
@@ -212,65 +221,43 @@ const Index = () => {
 
   if (currentSection === 3) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-cute-yellow via-cute-peach to-cute-pink flex items-center justify-center p-8 relative overflow-hidden">
         <FallingDinos />
         
         <div className="max-w-2xl mx-auto relative z-10">
-          <h2 className="text-5xl font-bold text-pink-400 mb-8 text-center flex items-center justify-center gap-4">
-            🦕 Reign's Love Analytics 🦖
+          <h2 className="text-4xl md:text-5xl font-pacifico text-gradient-cute mb-10 text-center flex items-center justify-center gap-4 drop-shadow-lg">
+            🦕 Reign Love Analytics 🦖
           </h2>
           
-          <Card className="bg-white/95 backdrop-blur-sm border-2 border-pink-400 shadow-2xl">
-            <CardContent className="p-10">
-              <div className="space-y-8">
-                <div className="flex justify-between items-center p-4 bg-gradient-to-r from-pink-100 to-pink-50 rounded-xl border border-pink-200">
-                  <span className="text-2xl font-semibold text-black flex items-center gap-2">
-                    <Heart className="text-pink-600" size={24} />
-                    Loyalty Level:
-                  </span>
-                  <span className="text-3xl font-bold text-pink-600">INFINITE/10 🦕</span>
-                </div>
-                
-                <div className="flex justify-between items-center p-4 bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl border border-gray-200">
-                  <span className="text-2xl font-semibold text-black flex items-center gap-2">
-                    <Sparkles className="text-pink-600" size={24} />
-                    Support Power:
-                  </span>
-                  <span className="text-3xl font-bold text-pink-600">10/10 🦖</span>
-                </div>
-                
-                <div className="flex justify-between items-center p-4 bg-gradient-to-r from-pink-100 to-pink-50 rounded-xl border border-pink-200">
-                  <span className="text-2xl font-semibold text-black flex items-center gap-2">
-                    <span className="text-2xl">🦎</span>
-                    Cuteness Factor:
-                  </span>
-                  <span className="text-3xl font-bold text-pink-600">MAXIMUM 🐾</span>
-                </div>
-                
-                <div className="flex justify-between items-center p-4 bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl border border-gray-200">
-                  <span className="text-2xl font-semibold text-black">
-                    Real Friend Status:
-                  </span>
-                  <span className="text-3xl font-bold text-pink-600">CERTIFIED ✅</span>
-                </div>
-                
-                <div className="flex justify-between items-center p-4 bg-gradient-to-r from-pink-100 to-pink-50 rounded-xl border border-pink-200">
-                  <span className="text-2xl font-semibold text-black">
-                    Special Place in Heart:
-                  </span>
-                  <span className="text-3xl font-bold text-pink-600">PERMANENT 💖</span>
-                </div>
+          <Card className="bg-white/90 backdrop-blur-md border-4 border-cute-pink/30 shadow-cute rounded-[2rem] overflow-hidden">
+            <CardContent className="p-8">
+              <div className="space-y-5">
+                {[
+                  { label: "Loyalty Level", value: "INFINITE/10 🦕", icon: <Heart className="text-cute-pink" size={24} fill="currentColor" /> },
+                  { label: "Support Power", value: "10/10 🦖", icon: <Sparkles className="text-cute-purple" size={24} /> },
+                  { label: "Cuteness Factor", value: "MAXIMUM 🐾", icon: <span className="text-2xl">🌸</span> },
+                  { label: "Real Boo Status", value: "CERTIFIED ✅", icon: <Star className="text-cute-yellow" size={24} fill="currentColor" /> },
+                  { label: "Special Place in Heart", value: "PERMANENT 💖", icon: <Heart className="text-cute-pink" size={24} fill="currentColor" /> },
+                ].map((stat, index) => (
+                  <div 
+                    key={index}
+                    className="flex justify-between items-center p-5 bg-gradient-to-r from-cute-pink/20 via-cute-lavender/20 to-cute-blue/20 rounded-2xl border-2 border-white/50 hover:scale-[1.02] transition-transform"
+                  >
+                    <span className="text-lg md:text-xl font-bold text-foreground flex items-center gap-3">
+                      {stat.icon}
+                      {stat.label}:
+                    </span>
+                    <span className="text-xl md:text-2xl font-bold text-cute-pink">{stat.value}</span>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
 
-          <div className="text-center mt-8">
-            <button 
-              onClick={handleNext}
-              className="bg-gradient-to-r from-pink-500 via-pink-400 to-white text-black px-10 py-4 rounded-full font-semibold hover:from-pink-600 hover:via-pink-500 hover:to-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105"
-            >
+          <div className="text-center mt-10">
+            <CuteButton onClick={handleNext}>
               See The Ultimate Ranking 🦕🏆
-            </button>
+            </CuteButton>
           </div>
         </div>
       </div>
@@ -279,102 +266,100 @@ const Index = () => {
 
   if (currentSection === 4) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-cute-purple via-cute-pink to-cute-peach flex items-center justify-center p-8 relative overflow-hidden">
         <FallingDinos />
         
         <div className="max-w-2xl mx-auto text-center relative z-10">
-          <h2 className="text-5xl font-bold text-pink-400 mb-12 flex items-center justify-center gap-4">
+          <h2 className="text-4xl md:text-5xl font-pacifico text-gradient-cute mb-10 flex items-center justify-center gap-4 drop-shadow-lg">
             🏆 The Ultimate Boo Leaderboard 🏆
           </h2>
           
-          <Card className="bg-white/95 backdrop-blur-sm border-2 border-pink-400 shadow-2xl mb-8 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-pink-500 via-pink-400 to-black"></div>
-            <CardContent className="p-12">
+          <Card className="bg-white/90 backdrop-blur-md border-4 border-cute-pink/30 shadow-cute rounded-[2rem] mb-10 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-cute-pink via-cute-purple to-cute-blue"></div>
+            <CardContent className="p-8 md:p-12">
               <div className="text-center">
-                <div className="text-8xl mb-6 animate-bounce">👑</div>
-                <div className="text-4xl font-bold text-black mb-4">
+                <div className="text-8xl mb-6 animate-bounce-soft drop-shadow-lg">👑</div>
+                <div className="text-4xl md:text-5xl font-pacifico text-gradient-cute mb-4">
                   #1 REIGN
                 </div>
-                <div className="text-2xl text-pink-600 mb-6 font-serif italic">
-                  "The Ultimate Boo & Pook"
+                <div className="text-xl text-cute-purple mb-8 font-medium bg-cute-lavender/50 rounded-full px-6 py-2 inline-block">
+                  "The Ultimate Boo & Pook" 💕
                 </div>
-                <div className="bg-gradient-to-r from-pink-200 via-pink-100 to-gray-100 rounded-2xl p-6 mb-6 border-2 border-pink-400">
-                  <span className="text-3xl font-bold text-black block mb-2">
+                <div className="bg-gradient-to-r from-cute-pink/30 via-cute-lavender/30 to-cute-blue/30 rounded-2xl p-6 mb-8 border-2 border-white/50">
+                  <span className="text-2xl md:text-3xl font-bold text-foreground block mb-2">
                     🦕 LEGENDARY STATUS ACHIEVED 🦖
                   </span>
-                  <span className="text-lg text-gray-700">
-                    Hall of Fame - First Ballot Entry
+                  <span className="text-lg text-foreground/70">
+                    Hall of Fame - First Ballot Entry ⭐
                   </span>
                 </div>
-                <div className="space-y-2 text-black text-xl">
-                  <p className="font-bold">🥇 Winner of: Best Boo Ever</p>
-                  <p className="font-bold">🏆 Champion of: Unconditional Love</p>
-                  <p className="font-bold">👑 Queen of: Making Everything Better</p>
+                <div className="space-y-3 text-foreground text-lg md:text-xl">
+                  <p className="font-bold flex items-center justify-center gap-2">🥇 Winner of: Best Boo Ever</p>
+                  <p className="font-bold flex items-center justify-center gap-2">🏆 Champion of: Unconditional Love</p>
+                  <p className="font-bold flex items-center justify-center gap-2">👑 Queen of: Making Everything Better</p>
                 </div>
-                <div className="mt-8 p-4 bg-pink-100 rounded-xl border border-pink-300">
-                  <p className="text-2xl font-bold text-black">
+                <div className="mt-8 p-5 bg-cute-pink/20 rounded-2xl border-2 border-cute-pink/30">
+                  <p className="text-xl md:text-2xl font-bold text-foreground">
                     Nobody else even comes close! 💖
                   </p>
-                  <p className="text-lg text-gray-700 mt-2">
-                    The competition ended before it started
+                  <p className="text-md text-foreground/70 mt-2">
+                    The competition ended before it started 🦕
                   </p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <button 
-            onClick={handleNext}
-            className="bg-gradient-to-r from-pink-500 via-pink-400 to-white text-black px-10 py-4 rounded-full font-semibold hover:from-pink-600 hover:via-pink-500 hover:to-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105"
-          >
+          <CuteButton onClick={handleNext}>
             One Final Dino Message 🦕💕
-          </button>
+          </CuteButton>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-cute-lavender via-cute-pink to-cute-peach flex items-center justify-center p-8 relative overflow-hidden">
       <FallingDinos />
       
       <div className="max-w-2xl mx-auto text-center relative z-10">
-        <div className="mb-12">
-          <div className="text-7xl mb-8 animate-bounce">🦕</div>
-          <h2 className="text-4xl font-serif text-pink-400 mb-8">Just wanted you to know...</h2>
+        <div className="mb-10">
+          <div className="text-8xl mb-8 animate-float drop-shadow-lg">🦕</div>
+          <h2 className="text-3xl md:text-4xl font-pacifico text-gradient-cute mb-8 drop-shadow-lg">Just wanted you to know...</h2>
         </div>
         
-        <Card className="bg-white/95 backdrop-blur-sm border-2 border-pink-400 shadow-2xl">
-          <CardContent className="p-12">
-            <p className="text-2xl font-serif text-black leading-relaxed mb-8">
-              This entire website was coded with love, just for you, Reign. 
-              Every animation, every color, every word - all chosen to make you smile 
-              the way you've made me smile countless times, pook.
-            </p>
-            <p className="text-2xl font-serif text-black leading-relaxed mb-8">
-              You're as cute as a baby dino, and twice as special, boo. 🦕
-            </p>
-            <div className="flex justify-center items-center gap-6 text-5xl mb-8">
-              <span className="animate-bounce">🦕</span>
-              <Heart className="text-pink-500 animate-pulse" size={60} />
-              <span className="text-pink-500 animate-bounce">🦖</span>
-              <Sparkles className="text-pink-400 animate-pulse" size={60} />
+        <Card className="bg-white/90 backdrop-blur-md border-4 border-cute-pink/30 shadow-cute rounded-[2rem]">
+          <CardContent className="p-8 md:p-12">
+            <div className="space-y-6 text-xl md:text-2xl font-quicksand text-foreground leading-relaxed">
+              <p>
+                This entire website was coded with love, just for you, Reign. 
+                Every animation, every color, every word - all chosen to make you smile 
+                the way you have made me smile countless times, pook. 💕
+              </p>
+              <p>
+                You are as cute as a baby dino, and twice as special, boo. 🦕✨
+              </p>
             </div>
-            <div className="text-2xl text-pink-600 font-bold">
+            <div className="flex justify-center items-center gap-6 text-5xl my-8">
+              <span className="animate-float">🦕</span>
+              <Heart className="text-cute-pink animate-pulse-soft" size={60} fill="currentColor" />
+              <span className="animate-float" style={{animationDelay: '0.5s'}}>🦖</span>
+              <Sparkles className="text-cute-yellow animate-sparkle" size={50} />
+            </div>
+            <div className="text-2xl font-pacifico text-gradient-cute">
               Made with endless love by your boo Edwin 💖
             </div>
-            <div className="mt-6 text-lg text-gray-600 italic">
+            <div className="mt-6 text-lg text-foreground/60 bg-cute-pink/10 rounded-full px-6 py-3 inline-block">
               (I hope this made you cry happy tears! 🥺💕)
             </div>
           </CardContent>
         </Card>
         
-        <button 
-          onClick={() => setCurrentSection(0)}
-          className="mt-8 bg-gradient-to-r from-pink-500 via-pink-400 to-white text-black px-10 py-4 rounded-full font-semibold hover:from-pink-600 hover:via-pink-500 hover:to-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105"
-        >
-          Experience This Beautiful Journey Again 🦕🔄
-        </button>
+        <div className="mt-10">
+          <CuteButton onClick={() => setCurrentSection(0)}>
+            Experience This Beautiful Journey Again 🦕🔄
+          </CuteButton>
+        </div>
       </div>
     </div>
   );
