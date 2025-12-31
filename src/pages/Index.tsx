@@ -2,19 +2,27 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, Sparkles } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import reign1 from '@/assets/reign-1.png';
+import reign2 from '@/assets/reign-2.png';
+import reign3 from '@/assets/reign-3.png';
+import reign4 from '@/assets/reign-4.png';
+import reign5 from '@/assets/reign-5.png';
+import reign6 from '@/assets/reign-6.png';
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [countdown, setCountdown] = useState(3);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
+  const reignPhotos = [reign1, reign2, reign3, reign4, reign5, reign6];
+  
   const sweetMessages = [
-    "You light up every room you enter, boo 💕",
-    "Your laugh is the sweetest sound, pook",
-    "You've made my life so much brighter",
-    "Every memory with you is precious",
-    "You're my everything, boo",
-    "Forever grateful for you, pook"
+    "My cutest little dino 🦕💕",
+    "You're rawr-some, pook 🦖",
+    "The prettiest T-Rex ever 🐾",
+    "Every dino moment with you is precious 🦎",
+    "You're my boo-saurus, boo 🦕",
+    "Forever grateful for my pook 🦖💕"
   ];
 
   const heartfeltMessages = [
@@ -90,13 +98,17 @@ const Index = () => {
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <div className="relative mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-pink-300 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
-            <div className="relative w-80 h-80 flex items-center justify-center rounded-3xl mx-auto shadow-2xl border-4 border-white bg-gradient-to-br from-pink-400 via-pink-300 to-white">
-              <div className="text-8xl animate-pulse">💕</div>
+            <div className="relative w-80 h-96 rounded-3xl mx-auto shadow-2xl border-4 border-white overflow-hidden">
+              <img 
+                src={reignPhotos[currentPhotoIndex]} 
+                alt={`Reign photo ${currentPhotoIndex + 1}`}
+                className="w-full h-full object-cover transition-all duration-500"
+              />
             </div>
-            <div className="absolute -top-6 -right-6 text-4xl animate-bounce">🌟</div>
-            <div className="absolute -bottom-6 -left-6 text-4xl animate-bounce" style={{animationDelay: '0.5s'}}>✨</div>
-            <div className="absolute top-1/2 -left-12 text-3xl animate-pulse">💖</div>
-            <div className="absolute top-1/2 -right-12 text-3xl animate-pulse" style={{animationDelay: '1s'}}>💝</div>
+            <div className="absolute -top-6 -right-6 text-4xl animate-bounce">🦕</div>
+            <div className="absolute -bottom-6 -left-6 text-4xl animate-bounce" style={{animationDelay: '0.5s'}}>🦖</div>
+            <div className="absolute top-1/2 -left-12 text-3xl animate-pulse">🐾</div>
+            <div className="absolute top-1/2 -right-12 text-3xl animate-pulse" style={{animationDelay: '1s'}}>🦎</div>
           </div>
           
           <div className="mb-8">
