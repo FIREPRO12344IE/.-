@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, Sparkles } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import FallingDinos from '@/components/FallingDinos';
 import reign1 from '@/assets/reign-1.png';
 import reign2 from '@/assets/reign-2.png';
 import reign3 from '@/assets/reign-3.png';
@@ -70,7 +71,8 @@ const Index = () => {
 
   if (currentSection === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-pink-900">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-pink-900 relative overflow-hidden">
+        <FallingDinos />
         <div className="text-center relative">
           <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 text-6xl animate-bounce">🦕</div>
           <div className="absolute -top-20 right-0 text-4xl animate-pulse" style={{animationDelay: '1s'}}>🦖</div>
@@ -98,10 +100,7 @@ const Index = () => {
   if (currentSection === 1) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
-        <div className="absolute top-10 left-10 text-4xl animate-bounce">🦕</div>
-        <div className="absolute top-20 right-20 text-3xl animate-pulse">🦖</div>
-        <div className="absolute bottom-20 left-20 text-5xl animate-bounce" style={{animationDelay: '1s'}}>🦎</div>
-        <div className="absolute bottom-10 right-10 text-4xl animate-pulse" style={{animationDelay: '2s'}}>🐾</div>
+        <FallingDinos />
         
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <div className="relative mb-8">
@@ -160,14 +159,8 @@ const Index = () => {
 
   if (currentSection === 2) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 text-3xl animate-bounce">🦕</div>
-          <div className="absolute top-40 right-20 text-4xl animate-pulse">🦖</div>
-          <div className="absolute bottom-40 left-20 text-3xl animate-bounce" style={{animationDelay: '1s'}}>🐊</div>
-          <div className="absolute bottom-20 right-40 text-4xl animate-pulse" style={{animationDelay: '2s'}}>🦎</div>
-          <div className="absolute top-60 left-1/3 text-2xl animate-bounce" style={{animationDelay: '1.5s'}}>🐾</div>
-        </div>
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+        <FallingDinos />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="mb-12">
@@ -219,13 +212,8 @@ const Index = () => {
 
   if (currentSection === 3) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 text-4xl animate-bounce">🦕</div>
-          <div className="absolute top-20 right-10 text-3xl animate-pulse">🦖</div>
-          <div className="absolute bottom-20 left-10 text-4xl animate-bounce" style={{animationDelay: '1s'}}>🐾</div>
-          <div className="absolute bottom-10 right-20 text-3xl animate-pulse" style={{animationDelay: '2s'}}>🦎</div>
-        </div>
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+        <FallingDinos />
         
         <div className="max-w-2xl mx-auto relative z-10">
           <h2 className="text-5xl font-bold text-pink-400 mb-8 text-center flex items-center justify-center gap-4">
@@ -291,15 +279,8 @@ const Index = () => {
 
   if (currentSection === 4) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 text-6xl animate-bounce">🦕</div>
-          <div className="absolute top-20 right-10 text-4xl animate-pulse">🦖</div>
-          <div className="absolute bottom-20 left-10 text-5xl animate-bounce" style={{animationDelay: '1s'}}>🐊</div>
-          <div className="absolute bottom-10 right-20 text-4xl animate-pulse" style={{animationDelay: '2s'}}>🦎</div>
-          <div className="absolute top-1/2 left-10 text-3xl animate-spin-slow">🐾</div>
-          <div className="absolute top-1/3 right-10 text-3xl animate-bounce" style={{animationDelay: '1.5s'}}>👑</div>
-        </div>
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+        <FallingDinos />
         
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <h2 className="text-5xl font-bold text-pink-400 mb-12 flex items-center justify-center gap-4">
@@ -354,16 +335,8 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative">
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 text-4xl animate-bounce">🦕</div>
-        <div className="absolute top-20 right-20 text-5xl animate-pulse">🦖</div>
-        <div className="absolute bottom-20 left-20 text-4xl animate-bounce" style={{animationDelay: '1s'}}>🐊</div>
-        <div className="absolute bottom-10 right-10 text-6xl animate-pulse" style={{animationDelay: '2s'}}>🦎</div>
-        <div className="absolute top-1/2 left-20 text-3xl animate-spin-slow">🐾</div>
-        <div className="absolute top-1/3 right-20 text-4xl animate-bounce" style={{animationDelay: '1.5s'}}>💫</div>
-        <div className="absolute bottom-1/3 left-1/4 text-3xl animate-pulse" style={{animationDelay: '3s'}}>✨</div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-900 flex items-center justify-center p-8 relative overflow-hidden">
+      <FallingDinos />
       
       <div className="max-w-2xl mx-auto text-center relative z-10">
         <div className="mb-12">
